@@ -21,6 +21,25 @@
 		0F7A24D619432CCD001B7839 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F7A24B819432CCD001B7839 /* UIKit.framework */; };
 		0F7A24DE19432CCD001B7839 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A24DC19432CCD001B7839 /* InfoPlist.strings */; };
 		0F7A24E019432CCD001B7839 /* LFGoodsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A24DF19432CCD001B7839 /* LFGoodsTests.m */; };
+		0F7A24F219433AD5001B7839 /* BGHome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A24F119433AD5001B7839 /* BGHome.jpg */; };
+		0F7A24F519434246001B7839 /* LFManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A24F419434246001B7839 /* LFManager.m */; };
+		0F7A24F81943FC8B001B7839 /* LFGoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A24F71943FC8B001B7839 /* LFGoodListViewController.m */; };
+		0F7A24FD19440ADE001B7839 /* ToDoListView_ButtonCompleteOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A24FC19440ADE001B7839 /* ToDoListView_ButtonCompleteOff@2x.png */; };
+		0F7A24FF19440AE6001B7839 /* ToDoListView_ButtonCompleteOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A24FE19440AE6001B7839 /* ToDoListView_ButtonCompleteOn@2x.png */; };
+		0F7A25071944260F001B7839 /* LFGoods.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A25051944260F001B7839 /* LFGoods.xcdatamodeld */; };
+		0F7A250919455DFE001B7839 /* nana.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A250819455DFE001B7839 /* nana.png */; };
+		0F7A250B19456A3E001B7839 /* shopIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A250A19456A3E001B7839 /* shopIcon.png */; };
+		0F7A250F194570B0001B7839 /* 空1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A250E194570B0001B7839 /* 空1.png */; };
+		0F7A25151945E060001B7839 /* _LFItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A25121945E060001B7839 /* _LFItem.m */; };
+		0F7A25161945E060001B7839 /* LFItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A25141945E060001B7839 /* LFItem.m */; };
+		0F7A25191945E581001B7839 /* br_down_icon&48.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A25171945E581001B7839 /* br_down_icon&48.png */; };
+		0F7A251A1945E581001B7839 /* br_up_icon&48.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A25181945E581001B7839 /* br_up_icon&48.png */; };
+		0F7A251D1945FFEC001B7839 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A251C1945FFEC001B7839 /* CustomCell.xib */; };
+		0F7A25201946027C001B7839 /* LFItemListCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A251F1946027C001B7839 /* LFItemListCustomCell.m */; };
+		0F7A2523194605D4001B7839 /* LFTableViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A2522194605D4001B7839 /* LFTableViewConst.m */; };
+		0F7A2526194617CE001B7839 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A2525194617CE001B7839 /* check@2x.png */; };
+		0F7A2528194617D5001B7839 /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A2527194617D5001B7839 /* cross@2x.png */; };
+		435A7B735F254E169EC9CFD0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F6DDB63DCD47D3BC02B9DE /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +72,32 @@
 		0F7A24DB19432CCD001B7839 /* LFGoodsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LFGoodsTests-Info.plist"; sourceTree = "<group>"; };
 		0F7A24DD19432CCD001B7839 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0F7A24DF19432CCD001B7839 /* LFGoodsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFGoodsTests.m; sourceTree = "<group>"; };
+		0F7A24F119433AD5001B7839 /* BGHome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BGHome.jpg; sourceTree = "<group>"; };
+		0F7A24F319434246001B7839 /* LFManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFManager.h; sourceTree = "<group>"; };
+		0F7A24F419434246001B7839 /* LFManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFManager.m; sourceTree = "<group>"; };
+		0F7A24F61943FC8B001B7839 /* LFGoodListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFGoodListViewController.h; sourceTree = "<group>"; };
+		0F7A24F71943FC8B001B7839 /* LFGoodListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFGoodListViewController.m; sourceTree = "<group>"; };
+		0F7A24FC19440ADE001B7839 /* ToDoListView_ButtonCompleteOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToDoListView_ButtonCompleteOff@2x.png"; sourceTree = "<group>"; };
+		0F7A24FE19440AE6001B7839 /* ToDoListView_ButtonCompleteOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToDoListView_ButtonCompleteOn@2x.png"; sourceTree = "<group>"; };
+		0F7A25061944260F001B7839 /* LFGoods.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LFGoods.xcdatamodel; sourceTree = "<group>"; };
+		0F7A250819455DFE001B7839 /* nana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nana.png; sourceTree = "<group>"; };
+		0F7A250A19456A3E001B7839 /* shopIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopIcon.png; sourceTree = "<group>"; };
+		0F7A250E194570B0001B7839 /* 空1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "空1.png"; sourceTree = "<group>"; };
+		0F7A25111945E060001B7839 /* _LFItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LFItem.h; sourceTree = "<group>"; };
+		0F7A25121945E060001B7839 /* _LFItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LFItem.m; sourceTree = "<group>"; };
+		0F7A25131945E060001B7839 /* LFItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFItem.h; sourceTree = "<group>"; };
+		0F7A25141945E060001B7839 /* LFItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFItem.m; sourceTree = "<group>"; };
+		0F7A25171945E581001B7839 /* br_down_icon&48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "br_down_icon&48.png"; sourceTree = "<group>"; };
+		0F7A25181945E581001B7839 /* br_up_icon&48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "br_up_icon&48.png"; sourceTree = "<group>"; };
+		0F7A251C1945FFEC001B7839 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		0F7A251E1946027C001B7839 /* LFItemListCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFItemListCustomCell.h; sourceTree = "<group>"; };
+		0F7A251F1946027C001B7839 /* LFItemListCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFItemListCustomCell.m; sourceTree = "<group>"; };
+		0F7A2521194605D4001B7839 /* LFTableViewConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFTableViewConst.h; sourceTree = "<group>"; };
+		0F7A2522194605D4001B7839 /* LFTableViewConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTableViewConst.m; sourceTree = "<group>"; };
+		0F7A2525194617CE001B7839 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		0F7A2527194617D5001B7839 /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
+		49F6DDB63DCD47D3BC02B9DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		86D5E82ACFB04827BF4D2A05 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +108,7 @@
 				0F7A24B719432CCD001B7839 /* CoreGraphics.framework in Frameworks */,
 				0F7A24B919432CCD001B7839 /* UIKit.framework in Frameworks */,
 				0F7A24B519432CCD001B7839 /* Foundation.framework in Frameworks */,
+				435A7B735F254E169EC9CFD0 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +132,7 @@
 				0F7A24D919432CCD001B7839 /* LFGoodsTests */,
 				0F7A24B319432CCD001B7839 /* Frameworks */,
 				0F7A24B219432CCD001B7839 /* Products */,
+				86D5E82ACFB04827BF4D2A05 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +152,7 @@
 				0F7A24B619432CCD001B7839 /* CoreGraphics.framework */,
 				0F7A24B819432CCD001B7839 /* UIKit.framework */,
 				0F7A24D319432CCD001B7839 /* XCTest.framework */,
+				49F6DDB63DCD47D3BC02B9DE /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,11 +160,19 @@
 		0F7A24BA19432CCD001B7839 /* LFGoods */ = {
 			isa = PBXGroup;
 			children = (
+				0F7A2524194605DC001B7839 /* Const */,
+				0F7A251B1945FFD8001B7839 /* View */,
+				0F7A25101945E060001B7839 /* Model */,
+				0F7A2503194425E2001B7839 /* Images */,
+				0F7A24F319434246001B7839 /* LFManager.h */,
+				0F7A24F419434246001B7839 /* LFManager.m */,
 				0F7A24C319432CCD001B7839 /* LFAppDelegate.h */,
 				0F7A24C419432CCD001B7839 /* LFAppDelegate.m */,
 				0F7A24C619432CCD001B7839 /* Main.storyboard */,
 				0F7A24C919432CCD001B7839 /* LFViewController.h */,
 				0F7A24CA19432CCD001B7839 /* LFViewController.m */,
+				0F7A24F61943FC8B001B7839 /* LFGoodListViewController.h */,
+				0F7A24F71943FC8B001B7839 /* LFGoodListViewController.m */,
 				0F7A24CC19432CCD001B7839 /* Images.xcassets */,
 				0F7A24BB19432CCD001B7839 /* Supporting Files */,
 			);
@@ -152,6 +208,54 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0F7A2503194425E2001B7839 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0F7A2527194617D5001B7839 /* cross@2x.png */,
+				0F7A2525194617CE001B7839 /* check@2x.png */,
+				0F7A25171945E581001B7839 /* br_down_icon&48.png */,
+				0F7A25181945E581001B7839 /* br_up_icon&48.png */,
+				0F7A250A19456A3E001B7839 /* shopIcon.png */,
+				0F7A250E194570B0001B7839 /* 空1.png */,
+				0F7A250819455DFE001B7839 /* nana.png */,
+				0F7A24FE19440AE6001B7839 /* ToDoListView_ButtonCompleteOn@2x.png */,
+				0F7A24FC19440ADE001B7839 /* ToDoListView_ButtonCompleteOff@2x.png */,
+				0F7A24F119433AD5001B7839 /* BGHome.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		0F7A25101945E060001B7839 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F7A25051944260F001B7839 /* LFGoods.xcdatamodeld */,
+				0F7A25111945E060001B7839 /* _LFItem.h */,
+				0F7A25121945E060001B7839 /* _LFItem.m */,
+				0F7A25131945E060001B7839 /* LFItem.h */,
+				0F7A25141945E060001B7839 /* LFItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0F7A251B1945FFD8001B7839 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F7A251C1945FFEC001B7839 /* CustomCell.xib */,
+				0F7A251E1946027C001B7839 /* LFItemListCustomCell.h */,
+				0F7A251F1946027C001B7839 /* LFItemListCustomCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0F7A2524194605DC001B7839 /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				0F7A2521194605D4001B7839 /* LFTableViewConst.h */,
+				0F7A2522194605D4001B7839 /* LFTableViewConst.m */,
+			);
+			name = Const;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +263,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F7A24E319432CCD001B7839 /* Build configuration list for PBXNativeTarget "LFGoods" */;
 			buildPhases = (
+				4785E15D495943879AD1BC05 /* Check Pods Manifest.lock */,
 				0F7A24AD19432CCD001B7839 /* Sources */,
 				0F7A24AE19432CCD001B7839 /* Frameworks */,
 				0F7A24AF19432CCD001B7839 /* Resources */,
+				5FB60BCA7126409B98706701 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,8 +336,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F7A24CD19432CCD001B7839 /* Images.xcassets in Resources */,
+				0F7A24FD19440ADE001B7839 /* ToDoListView_ButtonCompleteOff@2x.png in Resources */,
+				0F7A250B19456A3E001B7839 /* shopIcon.png in Resources */,
+				0F7A25191945E581001B7839 /* br_down_icon&48.png in Resources */,
 				0F7A24BF19432CCD001B7839 /* InfoPlist.strings in Resources */,
+				0F7A250F194570B0001B7839 /* 空1.png in Resources */,
+				0F7A251D1945FFEC001B7839 /* CustomCell.xib in Resources */,
+				0F7A250919455DFE001B7839 /* nana.png in Resources */,
+				0F7A251A1945E581001B7839 /* br_up_icon&48.png in Resources */,
+				0F7A24FF19440AE6001B7839 /* ToDoListView_ButtonCompleteOn@2x.png in Resources */,
+				0F7A2526194617CE001B7839 /* check@2x.png in Resources */,
+				0F7A2528194617D5001B7839 /* cross@2x.png in Resources */,
 				0F7A24C819432CCD001B7839 /* Main.storyboard in Resources */,
+				0F7A24F219433AD5001B7839 /* BGHome.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,14 +362,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4785E15D495943879AD1BC05 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5FB60BCA7126409B98706701 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0F7A24AD19432CCD001B7839 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0F7A24C519432CCD001B7839 /* LFAppDelegate.m in Sources */,
+				0F7A2523194605D4001B7839 /* LFTableViewConst.m in Sources */,
 				0F7A24C119432CCD001B7839 /* main.m in Sources */,
+				0F7A25201946027C001B7839 /* LFItemListCustomCell.m in Sources */,
+				0F7A25161945E060001B7839 /* LFItem.m in Sources */,
 				0F7A24CB19432CCD001B7839 /* LFViewController.m in Sources */,
+				0F7A25151945E060001B7839 /* _LFItem.m in Sources */,
+				0F7A24F519434246001B7839 /* LFManager.m in Sources */,
+				0F7A25071944260F001B7839 /* LFGoods.xcdatamodeld in Sources */,
+				0F7A24F81943FC8B001B7839 /* LFGoodListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +531,7 @@
 		};
 		0F7A24E419432CCD001B7839 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86D5E82ACFB04827BF4D2A05 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -387,6 +545,7 @@
 		};
 		0F7A24E519432CCD001B7839 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86D5E82ACFB04827BF4D2A05 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -457,6 +616,7 @@
 				0F7A24E519432CCD001B7839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0F7A24E619432CCD001B7839 /* Build configuration list for PBXNativeTarget "LFGoodsTests" */ = {
 			isa = XCConfigurationList;
@@ -465,8 +625,23 @@
 				0F7A24E819432CCD001B7839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0F7A25051944260F001B7839 /* LFGoods.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0F7A25061944260F001B7839 /* LFGoods.xcdatamodel */,
+			);
+			currentVersion = 0F7A25061944260F001B7839 /* LFGoods.xcdatamodel */;
+			name = LFGoods.xcdatamodeld;
+			path = ../LFGoods.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0F7A24A919432CCD001B7839 /* Project object */;
 }

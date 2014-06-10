@@ -15,6 +15,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.itemNum = 0;
+        self.isChecked = NO;
     }
     return self;
 }

@@ -64,9 +64,9 @@ extern const struct LFItemFetchedProperties {
 
 
 
-@property int32_t numValue;
-- (int32_t)numValue;
-- (void)setNumValue:(int32_t)value_;
+@property int16_t numValue;
+- (int16_t)numValue;
+- (void)setNumValue:(int16_t)value_;
 
 //- (BOOL)validateNum:(id*)value_ error:(NSError**)error_;
 
@@ -78,9 +78,9 @@ extern const struct LFItemFetchedProperties {
 
 
 
-@property int32_t priceValue;
-- (int32_t)priceValue;
-- (void)setPriceValue:(int32_t)value_;
+@property int16_t priceValue;
+- (int16_t)priceValue;
+- (void)setPriceValue:(int16_t)value_;
 
 //- (BOOL)validatePrice:(id*)value_ error:(NSError**)error_;
 

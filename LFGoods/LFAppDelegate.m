@@ -7,15 +7,75 @@
 //
 
 #import "LFAppDelegate.h"
+#import "LFItem.h"
 
 @implementation LFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    //MR初期化処理
+    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"LFGoods.sql"];
+    
+    
+    //グッズをCoreDataに登録（初期値)
+    NSDictionary *dict = @{@"パンフレット":@"3000", //NSNumberで格納
+                                                    @"ポスター":@"1000",
+                                                    @"ポストカードAセット":@"500",
+                                                    @"ポストカードBセット":@"500",
+                                                    @"ポストカードCセット":@"500",
+                                                    @"NANACA Collection File":@"2500",
+                                                    @"リストバンドA(BLACK)":@"1000",
+                                                    @"リストバンドB(RED)":@"1000",
+                                                    @"NANA シュシュ":@"1200",
+                                                    @"マフラータオル":@"2700",
+                                                    @"ビーチタオル":@"4500",
+                                                    @"NM-TEE A":@"3000",
+                                                    @"NM-TEE B":@"3000",
+                                                    @"NM-TEE C":@"3000",
+                                                    @"FLIGHT-LIMITED TEE":@"3000",
+                                                    @"FLIGHT☆ワークシャツ":@"6900",
+                                                    @"ペンライト FLIGHT Edition":@"1600",
+                                                    @"FLIGHT☆CAP":@"3000",
+                                                    @"FLIGHT☆キーリングストラップ":@"1500",
+                                                    @"ドッグダグ":@"1800",
+                                                    @"iPhoneケース":@"3500",
+                                                    @"ナネットさんのiPhoneカバー":@"2800",
+                                                    @"ポータブルボストンバッグ":@"3800",
+                                                    @"FLIGHT☆オーガナイザー":@"4800",
+                                                    @"FLIGHT☆エアラインバッグ":@"7700",
+                                                    @"ピンズ":@"700",
+                                                    @"nm7レインポンチョ":@"3500"
+                                                    };
+    
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
+
+    NSArray *keys = [NSArray new];
+    keys = [dict.allKeys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [obj1 compare:obj2];
+    }];
+    
+    for (NSString *key in keys) {
+        
+        LFItem* newItem = [LFItem MR_createEntity];
+        newItem.name = key;
+        newItem.num = 0;
+        newItem.isChecked = NO;
+        
+    }
+    
+    
+    [context MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        if (success) {
+            NSLog(@"------> saved!!!!");
+        } else {
+            NSLog(@"error : %@",error);
+        }
+    }];
+
+    
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

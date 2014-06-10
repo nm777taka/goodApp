@@ -101,12 +101,12 @@ const struct LFItemFetchedProperties LFItemFetchedProperties = {
 
 
 
-- (int32_t)numValue {
+- (int16_t)numValue {
 	NSNumber *result = [self num];
 	return [result intValue];
 }
 
-- (void)setNumValue:(int32_t)value_ {
+- (void)setNumValue:(int16_t)value_ {
 	[self setNum:[NSNumber numberWithInt:value_]];
 }
 
@@ -127,12 +127,12 @@ const struct LFItemFetchedProperties LFItemFetchedProperties = {
 
 
 
-- (int32_t)priceValue {
+- (int16_t)priceValue {
 	NSNumber *result = [self price];
 	return [result intValue];
 }
 
-- (void)setPriceValue:(int32_t)value_ {
+- (void)setPriceValue:(int16_t)value_ {
 	[self setPrice:[NSNumber numberWithInt:value_]];
 }
 

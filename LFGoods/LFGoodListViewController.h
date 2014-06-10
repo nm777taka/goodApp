@@ -6,8 +6,9 @@
 //  Copyright (c) 2014年 古田貴久. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+@import UIKit;
+#import "LFItemListCustomCell.h"
 
-@interface LFGoodListViewController : NSViewController
+@interface LFGoodListViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,SWTableViewCellDelegate>
 
 @end

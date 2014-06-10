@@ -10,4 +10,8 @@
 
 @interface LFManager : NSObject
 
++ (instancetype)sharedManager;
+
+@property (nonatomic,strong,readonly)NSArray *goodsArray;
+
 @end
