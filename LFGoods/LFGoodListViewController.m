@@ -34,7 +34,6 @@
     self.goodListTable.dataSource = self;
 
     
-    [self setData];
     [self fetchDictKeys];
     
     //カスタムセルnibを登録
@@ -126,17 +125,17 @@
 
 - (void)configureCell:(LFItemListCustomCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    if (!cell.isChecked) {
-        cell.itemNumLabel.hidden = YES;
-    } else {
-        cell.itemNumLabel.hidden = NO;
-        [self addItemNum:cell];
-    }
+//    if (!cell.isChecked) {
+//        cell.itemNumLabel.hidden = YES;
+//    } else {
+//        cell.itemNumLabel.hidden = NO;
+//        [self addItemNum:cell];
+//    }
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = NO",@"isChecked"];
     LFItem *item;
     
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
         item = [self.lfItems objectAtIndex:indexPath.row];
     } else {
         //sectionが0の場合はrow+未チェックの数
@@ -144,6 +143,7 @@
     }
     
     cell.nameLabel.text = item.name;
+    cell.itemNum = [item.num intValue];
     
     int temp = item.priceValue;
     
@@ -152,41 +152,6 @@
     [yen appendString:value];
     
     cell.priceLabel.text = yen;
-    
-}
-
-- (void)setData
-{
-    NSLog(@"よばれた");
-    self.NameWithPriceDict = @{@"パンフレット":@"3000", //NSNumberで格納
-                                @"ポスター":@"1000",
-                                @"ポストカードAセット":@"500",
-                                @"ポストカードBセット":@"500",
-                                @"ポストカードCセット":@"500",
-                                @"NANACA Collection File":@"2500",
-                                @"リストバンドA(BLACK)":@"1000",
-                                @"リストバンドB(RED)":@"1000",
-                                @"NANA シュシュ":@"1200",
-                                @"マフラータオル":@"2700",
-                                @"ビーチタオル":@"4500",
-                                @"NM-TEE A":@"3000",
-                                @"NM-TEE B":@"3000",
-                                @"NM-TEE C":@"3000",
-                                @"FLIGHT-LIMITED TEE":@"3000",
-                                @"FLIGHT☆ワークシャツ":@"6900",
-                                @"ペンライト FLIGHT Edition":@"1600",
-                                @"FLIGHT☆CAP":@"3000",
-                                @"FLIGHT☆キーリングストラップ":@"1500",
-                                @"ドッグダグ":@"1800",
-                                @"iPhoneケース":@"3500",
-                                @"ナネットさんのiPhoneカバー":@"2800",
-                                @"ポータブルボストンバッグ":@"3800",
-                                @"FLIGHT☆オーガナイザー":@"4800",
-                                @"FLIGHT☆エアラインバッグ":@"7700",
-                                @"ピンズ":@"700",
-                                @"nm7レインポンチョ":@"3500"
-                                };
-    
     
 }
 
@@ -323,7 +288,7 @@
 
 - (NSArray *)fetchEntity
 {
-    return [LFItem fetchSortedEntityCheckedAtFirst];
+    return [LFItem fetchSortedEntityCheckedInEnd];
     
 }
 

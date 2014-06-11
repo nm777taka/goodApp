@@ -4,7 +4,7 @@
 // Custom logic goes here.
 
 + (NSArray *)fetchSortedEntity;
-+ (NSArray *)fetchSortedEntityCheckedAtFirst;
++ (NSArray *)fetchSortedEntityCheckedInEnd;
 + (NSArray *)fetchSortedEntityOnlyNotChecked;
 
 @end

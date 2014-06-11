@@ -20,14 +20,14 @@
     return entity;
 }
 
-+ (NSArray *)fetchSortedEntityCheckedAtFirst
++ (NSArray *)fetchSortedEntityCheckedInEnd
 {
     NSPredicate *yesPre = [NSPredicate predicateWithFormat:@"%K = YES",@"isChecked"];
     NSArray *checkedItems = [LFItem MR_findAllWithPredicate:yesPre];
     
     NSArray *notCheckedItems = [self fetchSortedEntityOnlyNotChecked];
     
-    NSArray* resultArray = [checkedItems arrayByAddingObjectsFromArray:notCheckedItems];
+    NSArray* resultArray = [notCheckedItems arrayByAddingObjectsFromArray:checkedItems];
     
     NSLog(@"resulut array %d",resultArray.count);
     
