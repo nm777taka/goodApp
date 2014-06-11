@@ -70,10 +70,7 @@
             newItem.name = key;
             newItem.num = 0;
             newItem.isChecked = [NSNumber numberWithBool:NO];
-            
-            NSLog(@"よばれた");
-            
-            //newItem.price = dict[key];
+            newItem.priceValue = [dict[key] intValue];
         }
         
         
