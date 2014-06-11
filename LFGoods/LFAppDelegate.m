@@ -71,14 +71,15 @@
             newItem.num = 0;
             newItem.isChecked = [NSNumber numberWithBool:NO];
             
+            //newItem.price = dict[key];
         }
         
         
         [context MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
             if (success) {
                 NSLog(@"------> saved!!!!");
-                NSPredicate *pre = [NSPredicate predicateWithFormat:@"(%K = NO )",@"isChecked"];
-                NSLog(@"item num is %d",[LFItem MR_countOfEntitiesWithPredicate:pre]);
+                //NSPredicate *pre = [NSPredicate predicateWithFormat:@"(%K = NO )",@"isChecked"];
+                //NSLog(@"item num is %d",[LFItem MR_countOfEntitiesWithPredicate:pre]);
                 
             } else {
                 NSLog(@"error : %@",error);
