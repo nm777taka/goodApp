@@ -16,6 +16,9 @@
 @property  NSDictionary *NameWithPriceDict;
 @property  NSDictionary *NameWithDetailDict;
 @property (nonatomic,strong) NSArray *items;
+
+@property NSMutableArray *lfItems;
+
 @property int checkedItemNum;
 
 @end
@@ -38,10 +41,18 @@
     UINib* nib = [UINib nibWithNibName:TableViewCustomCellIdentifier bundle:nil];
     [self.goodListTable registerNib:nib forCellReuseIdentifier:@"Cell"];
     
+    //フェッチ
+    self.lfItems = [[self fetchEntity]mutableCopy];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:YES];
+    
+    self.lfItems = [[self fetchEntity] mutableCopy];
+    [self.goodListTable reloadData];
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -54,11 +65,11 @@
 {
     switch (section) {
         case 0:
-            return @"チェック済み";
+            return @"未チェク";
             break;
             
         case 1:
-            return @"未チェック";
+            return @"買い物かご";
             break;
             
         default:
@@ -74,10 +85,10 @@
     NSPredicate *yesPredicate = [NSPredicate predicateWithFormat:@"%K = YES",@"isChecked"];
     switch (section) {
         case 0:
-            return [LFItem MR_countOfEntitiesWithPredicate:yesPredicate];
+            return [LFItem MR_countOfEntitiesWithPredicate:noPredicate];
             break;
         case 1:
-            return [LFItem MR_countOfEntitiesWithPredicate:noPredicate];
+            return [LFItem MR_countOfEntitiesWithPredicate:yesPredicate];
             break;
             
         default:
@@ -115,18 +126,6 @@
 
 - (void)configureCell:(LFItemListCustomCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    cell.nameLabel.text = self.items[indexPath.row];
-    
-    NSString* key = [NSString stringWithFormat:@"%@",self.items[indexPath.row]];
-    
-    //￥を先頭に追加
-    NSMutableString *yen = [NSMutableString stringWithFormat:@"￥"];
-    NSString* value = [NSString stringWithFormat:@"%@",self.NameWithPriceDict[key]];
-    
-     [yen appendString:value];
-    
-    cell.priceLabel.text = yen;
-    
     if (!cell.isChecked) {
         cell.itemNumLabel.hidden = YES;
     } else {
@@ -134,6 +133,25 @@
         [self addItemNum:cell];
     }
     
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = NO",@"isChecked"];
+    LFItem *item;
+    
+    if (indexPath.section == 1) {
+        item = [self.lfItems objectAtIndex:indexPath.row];
+    } else {
+        //sectionが0の場合はrow+未チェックの数
+        item = [self.lfItems objectAtIndex:(indexPath.row+[LFItem MR_countOfEntitiesWithPredicate:predicate])];
+    }
+    
+    cell.nameLabel.text = item.name;
+    
+    int temp = item.priceValue;
+    
+    NSMutableString *yen = [NSMutableString stringWithFormat:@"￥"];
+    NSString *value = [NSString stringWithFormat:@"%d",temp];
+    [yen appendString:value];
+    
+    cell.priceLabel.text = yen;
     
 }
 
@@ -214,7 +232,7 @@
     switch (index) {
         case 0:
             NSLog(@"left button 0 was pressed");
-            [self addEntity:(LFItemListCustomCell*)cell];
+            //[self addEntity:(LFItemListCustomCell*)cell];
             [cell hideUtilityButtonsAnimated:YES];
             break;
         case 1:
@@ -281,26 +299,32 @@
 }
 
 #pragma mark - CoreDataまわり
-- (void)addEntity:(LFItemListCustomCell *)cell
+//- (void)addEntity:(LFItemListCustomCell *)cellº
+//{
+//    NSIndexPath *indexPath = [self.goodListTable indexPathForCell:cell];
+//    cell.isChecked = YES;
+//    [self configureCell:cell atIndexPath:indexPath];
+//    
+//    //データ永続化
+//    LFItem *newItem = [LFItem MR_createEntity];
+//    newItem.name = self.items[indexPath.row];
+//    newItem.num = [NSNumber numberWithInt:cell.itemNum];
+//    newItem.isChecked  = [NSNumber numberWithBool:cell.isChecked];
+//    
+//    NSManagedObjectContext *context = [NSManagedObjectContext defaultContext];
+//    [context MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+//        if (success) {
+//            NSLog(@"saved ---- >\n%@",newItem);
+//        } else {ººººººº
+//            NSLog(@"error : %@",error);
+//        }
+//    }];
+//}
+
+- (NSArray *)fetchEntity
 {
-    NSIndexPath *indexPath = [self.goodListTable indexPathForCell:cell];
-    cell.isChecked = YES;
-    [self configureCell:cell atIndexPath:indexPath];
+    return [LFItem fetchSortedEntityCheckedAtFirst];
     
-    //データ永続化
-    LFItem *newItem = [LFItem MR_createEntity];
-    newItem.name = self.items[indexPath.row];
-    newItem.num = [NSNumber numberWithInt:cell.itemNum];
-    newItem.isChecked  = [NSNumber numberWithBool:cell.isChecked];
-    
-    NSManagedObjectContext *context = [NSManagedObjectContext defaultContext];
-    [context MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
-        if (success) {
-            NSLog(@"saved ---- >\n%@",newItem);
-        } else {
-            NSLog(@"error : %@",error);
-        }
-    }];
 }
 
 

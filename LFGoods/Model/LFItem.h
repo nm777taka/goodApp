@@ -3,6 +3,8 @@
 @interface LFItem : _LFItem {}
 // Custom logic goes here.
 
-+ (int)countOfEntitiesWithChecked;
++ (NSArray *)fetchSortedEntity;
++ (NSArray *)fetchSortedEntityCheckedAtFirst;
++ (NSArray *)fetchSortedEntityOnlyNotChecked;
 
 @end
