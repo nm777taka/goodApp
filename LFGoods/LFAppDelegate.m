@@ -28,7 +28,8 @@
         
         //グッズをCoreDataに登録（初期値)
         NSDictionary *dict = @{@"パンフレット":@"3000", //NSNumberで格納
-                               @"ポスター":@"1000",
+                               @"ポスターtypeA":@"1000",
+                               @"ポスターtypeB":@"1000",
                                @"ポストカードAセット":@"500",
                                @"ポストカードBセット":@"500",
                                @"ポストカードCセット":@"500",
@@ -55,6 +56,8 @@
                                @"ピンズ":@"700",
                                @"nm7レインポンチョ":@"3500"
                                };
+        
+                
         
         NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
         
@@ -119,5 +122,25 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
++ (instancetype)sharedManager
+{
+    static id _sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,^{
+        _sharedManager = [[self alloc]init];
+    });
+    
+    return _sharedManager;
+}
+
+- (NSArray *)fetchAllKeys
+{
+    return [self.detailDict allKeys];
+}
+
+
+
 
 @end

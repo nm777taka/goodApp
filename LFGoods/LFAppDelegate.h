@@ -12,4 +12,11 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong,nonatomic) NSDictionary *nameDict;
+@property (strong,nonatomic) NSDictionary *detailDict;
+
++ (instancetype)sharedManager;
+
+- (NSArray *)fetchAllKeys;
+
 @end

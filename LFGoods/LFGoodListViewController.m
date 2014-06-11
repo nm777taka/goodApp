@@ -10,12 +10,13 @@
 #import "LFTableViewConst.h"
 #import <NSMutableArray+SWUtilityButtons.h>
 #import "LFItem.h"
+#import "LFAppDelegate.h"
 
 @interface LFGoodListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *goodListTable;
 @property  NSDictionary *NameWithPriceDict;
 @property  NSDictionary *NameWithDetailDict;
-@property (nonatomic,strong) NSArray *items;
+@property (nonatomic,strong) NSArray *keys;
 
 @property NSMutableArray *lfItems;
 
@@ -32,9 +33,38 @@
     
     self.goodListTable.delegate = self;
     self.goodListTable.dataSource = self;
-
     
-    [self fetchDictKeys];
+    self.NameWithDetailDict = @{@"パンフレット":@"size:A4", //NSNumberで格納
+                        @"ポスターtypeA":@"size:B2",
+                        @"ポスターtypeB":@"size:B2",
+                        @"ポストカードAセット":@"3枚セット×3種",
+                        @"ポストカードBセット":@"3枚セット×3種",
+                        @"ポストカードCセット":@"3枚セット×3種",
+                        @"NANACA Collection File":@"SP NANACA一枚,リフィル7枚付き",
+                        @"リストバンドA(BLACK)":@"BLACK",
+                        @"リストバンドB(RED)":@"RED",
+                        @"NANA シュシュ":@"",
+                        @"マフラータオル":@"ジャガード織 NAVY",
+                        @"ビーチタオル":@"H700×W1350mm",
+                        @"NM-TEE A":@"S/M/L/XL BLACK/WHITE",
+                        @"NM-TEE B":@"S/M/L/XL BLACK",
+                        @"NM-TEE C":@"S/M/L/XL BLUE",
+                        @"FLIGHT-LIMITED TEE":@"全14種 当日のお楽しみ☆",
+                        @"FLIGHT☆ワークシャツ":@"S/M/L/XL BLACK",
+                        @"ペンライト FLIGHT Edition":@"プッシュボタン式",
+                        @"FLIGHT☆CAP":@"",
+                        @"FLIGHT☆キーリングストラップ":@"イヤホンジャックパーツ付き",
+                        @"ドッグダグ":@"",
+                        @"iPhoneケース":@"iPhone5&5s兼用",
+                        @"ナネットさんのiPhoneカバー":@"iPhone5&5s兼用、シリコン素材",
+                        @"ポータブルボストンバッグ":@"カラビナ付 BLACK H230×W450×D220mm",
+                        @"FLIGHT☆オーガナイザー":@"カード6枚,パスポート収納可 NAVY",
+                        @"FLIGHT☆エアラインバッグ":@"エナメル生地 H290×W330×D100mm NAVY",
+                        @"ピンズ":@"全14種 当日のお楽しみ☆",
+                        @"nm7レインポンチョ":@"LIVE UNION再生産商品"
+                        };
+    
+
     
     //カスタムセルnibを登録
     UINib* nib = [UINib nibWithNibName:TableViewCustomCellIdentifier bundle:nil];
@@ -94,7 +124,7 @@
             break;
     }
     
-    return self.items.count;
+    return self.lfItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -146,20 +176,12 @@
     cell.itemNum = [item.num intValue];
     
     int temp = item.priceValue;
-    
     NSMutableString *yen = [NSMutableString stringWithFormat:@"￥"];
     NSString *value = [NSString stringWithFormat:@"%d",temp];
     [yen appendString:value];
-    
     cell.priceLabel.text = yen;
     
-}
-
-- (void)fetchDictKeys
-{
-    self.items = [self.NameWithPriceDict.allKeys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        return [obj1 compare:obj2];
-    }];
+    cell.detailLabel.text = self.NameWithDetailDict[item.name];
     
     
 }

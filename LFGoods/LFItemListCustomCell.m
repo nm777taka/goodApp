@@ -17,6 +17,7 @@
         // Initialization code
         self.itemNum = 0;
         self.isChecked = NO;
+      
     }
     return self;
 }
