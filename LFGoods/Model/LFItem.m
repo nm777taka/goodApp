@@ -14,7 +14,7 @@
 
 + (NSArray *)fetchSortedEntity
 {
-    NSArray *entity = [LFItem MR_findAll];
+    NSArray *entity = [LFItem MR_findAllSortedBy:@"name" ascending:YES];
     
     
     return entity;
