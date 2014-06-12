@@ -8,6 +8,7 @@
 
 #import "LFViewController.h"
 #import "LFManager.h"
+#import "LFItem.h"
 
 @interface LFViewController ()
 
@@ -22,6 +23,7 @@
 @property (nonatomic,strong) NSDictionary *NameWithDetailDict;
 
 @property NSArray *item;
+@property NSMutableArray *lfItems;
 
 - (IBAction)addAction:(id)sender;
 
@@ -102,11 +104,8 @@
     [header addSubview:self.priceLabel];
 
     
-    
-    
-    
-    self.item = [NSArray new];
-    self.item = @[@"Tシャツ",@"ペンライト",@"バック",@"NANACA"];
+    //DBからデータをフェッチ
+    self.lfItems = [[self fetchEntity] mutableCopy];
     
 }
 
@@ -120,6 +119,10 @@
     CGRect bounds = self.view.bounds;
     
     self.tableView.frame = bounds;
+    
+    self.lfItems = [[self fetchEntity] mutableCopy];
+    [self.tableView reloadData];
+    [self configureHeaderView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -138,7 +141,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.item.count;
+    return self.lfItems.count;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -155,14 +158,16 @@
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.detailTextLabel.textColor = [UIColor whiteColor];
     
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            [self configureHeaderCell:cell title:@"物販リスト"];
-        } else {
-            NSString* itemName = self.item[indexPath.row - 1];
-            [self configureGoodCell:cell item:itemName];
-        }
-    }
+//    if (indexPath.section == 0) {
+//        if (indexPath.row == 0) {
+//            [self configureHeaderCell:cell title:@"物販リスト"];
+//        } else {
+//            NSString* itemName = self.item[indexPath.row - 1];
+//            [self configureGoodCell:cell item:itemName];
+//        }
+//    }
+    
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
     
@@ -184,6 +189,28 @@
     
 }
 
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    LFItem *item = self.lfItems[indexPath.row];
+    cell.textLabel.text = item.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",item.numValue];
+}
+
+- (void)configureHeaderView
+{
+    int itemSum = 0;
+    int priceSum = 0;
+    
+    for(LFItem *item in self.lfItems) {
+        itemSum += item.numValue;
+        priceSum += (item.numValue * item.priceValue);
+    }
+    
+    self.itemNumLabel.text = [NSString stringWithFormat:@"%d",itemSum];
+    self.priceLabel.text = [NSString stringWithFormat:@"%d",priceSum];
+}
+
+
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -204,6 +231,10 @@
    [self performSegueWithIdentifier:@"GoToItemListView" sender:self];
 }
 
-
+#pragma mark - CoreData周り
+- (NSArray *)fetchEntity
+{
+    return [LFItem fetchSortedEntityOnlyChecked];
+}
 
 @end
