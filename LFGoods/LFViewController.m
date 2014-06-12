@@ -45,12 +45,13 @@
     //ブラーを挟むならこの位置でaddsub
     
     self.tableView = [[UITableView alloc]init];
+    self.tableView.frame = CGRectMake(0, self.navigationController.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
     //self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, self.view.frame.size.height-200)];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorColor = [UIColor colorWithWhite:1 alpha:0.5];
-    self.tableView.pagingEnabled = YES;
+    self.tableView.pagingEnabled = NO;
     [self.view addSubview:self.tableView];
     
     //ヘッダー設定
@@ -114,6 +115,15 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    self.lfItems = [[self fetchEntity] mutableCopy];
+    [self.tableView reloadData];
+    [self configureHeaderView];
+
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
@@ -124,10 +134,6 @@
     CGRect bounds = self.view.bounds;
     
     self.tableView.frame = bounds;
-    
-    self.lfItems = [[self fetchEntity] mutableCopy];
-    [self.tableView reloadData];
-    [self configureHeaderView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -219,8 +225,9 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger cellCount = [self tableView:tableView numberOfRowsInSection:indexPath.section];
-    return self.screenHeight / (CGFloat)cellCount;
+//    NSInteger cellCount = [self tableView:tableView numberOfRowsInSection:indexPath.section];
+//    return self.screenHeight / (CGFloat)cellCount;
+    return 70;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -229,7 +236,16 @@
 //    CGFloat height = scrollView.bounds.size.height;
 //    CGFloat position = MAX(scrollView.contentOffset.y, 0.0);
 //    CGFloat percent = MIN(position/height, 1.0);
-    [self changeFullScreen];
+   
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //一番下までスクロールしたかどうか判断
+    if(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height))
+    {
+        //まだ表示するコンテンツが存在するか判定し存在するなら○件分を取得して表示更新する
+    }
 }
 
 - (IBAction)addAction:(id)sender
