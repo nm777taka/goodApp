@@ -24,11 +24,11 @@
                         <color key="backgroundColor" red="0.11105675102629141" green="0.68819678643180604" blue="0.96562101403061229" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="買い物かご" id="Wks-uC-f6s">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="auP-wO-KOT">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="leftBarButtonItem" id="auP-wO-KOT">
+                            <color key="tintColor" red="0.0" green="0.64683300259999998" blue="0.86515462399999998" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zXT-49-bKr">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.111056751" green="0.68819678640000004" blue="0.965621014" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addAction:" destination="vXZ-lx-hvc" id="0Uj-Et-C2h"/>
                                 <segue destination="ITj-y9-2RK" kind="push" identifier="GoToGoodListView" id="tYB-hm-1Vg"/>
@@ -60,7 +60,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="e2D-rZ-UjH"/>
+                    <navigationItem key="navigationItem" id="e2D-rZ-UjH">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="bD0-f3-Yak">
+                            <connections>
+                                <segue destination="tu7-fd-SFy" kind="push" id="5l4-zO-5mX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="goodListTable" destination="1oB-bA-fWX" id="mAk-as-vSo"/>
                     </connections>
@@ -68,6 +74,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcL-kp-T50" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1083" y="46"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="XQq-6Y-fiA">
+            <objects>
+                <viewController id="tu7-fd-SFy" customClass="LFWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z3k-Ca-60L"/>
+                        <viewControllerLayoutGuide type="bottom" id="jqF-CV-Cyf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2uS-ue-frd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nZf-om-vvb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Rja-vf-yqX"/>
+                    <connections>
+                        <outlet property="webView" destination="nZf-om-vvb" id="leZ-44-BrA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wxr-Fm-1Kk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1519" y="46"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Ka-81-hjn">

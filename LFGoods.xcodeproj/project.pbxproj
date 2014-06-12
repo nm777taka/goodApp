@@ -39,6 +39,7 @@
 		0F7A2523194605D4001B7839 /* LFTableViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A2522194605D4001B7839 /* LFTableViewConst.m */; };
 		0F7A2526194617CE001B7839 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A2525194617CE001B7839 /* check@2x.png */; };
 		0F7A2528194617D5001B7839 /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A2527194617D5001B7839 /* cross@2x.png */; };
+		0F7A252B1949E051001B7839 /* LFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A252A1949E051001B7839 /* LFWebViewController.m */; };
 		435A7B735F254E169EC9CFD0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F6DDB63DCD47D3BC02B9DE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,8 @@
 		0F7A2522194605D4001B7839 /* LFTableViewConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTableViewConst.m; sourceTree = "<group>"; };
 		0F7A2525194617CE001B7839 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
 		0F7A2527194617D5001B7839 /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
+		0F7A25291949E051001B7839 /* LFWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFWebViewController.h; sourceTree = "<group>"; };
+		0F7A252A1949E051001B7839 /* LFWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFWebViewController.m; sourceTree = "<group>"; };
 		49F6DDB63DCD47D3BC02B9DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D5E82ACFB04827BF4D2A05 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +176,8 @@
 				0F7A24CA19432CCD001B7839 /* LFViewController.m */,
 				0F7A24F61943FC8B001B7839 /* LFGoodListViewController.h */,
 				0F7A24F71943FC8B001B7839 /* LFGoodListViewController.m */,
+				0F7A25291949E051001B7839 /* LFWebViewController.h */,
+				0F7A252A1949E051001B7839 /* LFWebViewController.m */,
 				0F7A24CC19432CCD001B7839 /* Images.xcassets */,
 				0F7A24BB19432CCD001B7839 /* Supporting Files */,
 			);
@@ -404,6 +409,7 @@
 				0F7A2523194605D4001B7839 /* LFTableViewConst.m in Sources */,
 				0F7A24C119432CCD001B7839 /* main.m in Sources */,
 				0F7A25201946027C001B7839 /* LFItemListCustomCell.m in Sources */,
+				0F7A252B1949E051001B7839 /* LFWebViewController.m in Sources */,
 				0F7A25161945E060001B7839 /* LFItem.m in Sources */,
 				0F7A24CB19432CCD001B7839 /* LFViewController.m in Sources */,
 				0F7A25151945E060001B7839 /* _LFItem.m in Sources */,
