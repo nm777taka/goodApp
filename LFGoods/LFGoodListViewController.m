@@ -21,6 +21,7 @@
 @property NSMutableArray *lfItems;
 
 @property int checkedItemNum;
+- (IBAction)allDeleteAction:(id)sender;
 
 @end
 
@@ -347,4 +348,52 @@
 
 
 
+- (IBAction)allDeleteAction:(id)sender
+{
+    
+    UIAlertView *alert = [UIAlertView new];
+    alert.delegate = self;
+    alert.title = @"確認";
+    alert.message = @"削除しちゃうよ？";
+    [alert addButtonWithTitle:@"シャッス！"];
+    [alert addButtonWithTitle:@"ちょっとまって！"];
+    [alert show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch(buttonIndex) {
+            
+        case 0:
+            [self allDelete];
+            break;
+            
+        case 1:
+            break; 
+
+    }
+}
+
+- (void)allDelete
+{
+    for(LFItem *item in self.lfItems) {
+        
+        if (item.isCheckedValue == YES) {
+            item.isCheckedValue = NO;
+            item.numValue = 0;
+        }
+    }
+    
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
+    [context MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        if(success) {
+            NSLog(@"saved");
+        } else {
+            NSLog(@"error %@",error);
+        }
+    }];
+    
+    [self.goodListTable reloadData];
+}
 @end

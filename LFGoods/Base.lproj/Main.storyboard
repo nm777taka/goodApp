@@ -28,7 +28,7 @@
                             <color key="tintColor" red="0.0" green="0.64683300259999998" blue="0.86515462399999998" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zXT-49-bKr">
-                            <color key="tintColor" red="0.111056751" green="0.68819678640000004" blue="0.965621014" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.0" green="0.64683300259999998" blue="0.86515462399999998" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addAction:" destination="vXZ-lx-hvc" id="0Uj-Et-C2h"/>
                                 <segue destination="ITj-y9-2RK" kind="push" identifier="GoToGoodListView" id="tYB-hm-1Vg"/>
@@ -40,7 +40,7 @@
             </objects>
             <point key="canvasLocation" x="702" y="46"/>
         </scene>
-        <!--Good List View Controller-->
+        <!--Good List View Controller - 物販リスト-->
         <scene sceneID="pVA-Bl-1Fc">
             <objects>
                 <viewController id="ITj-y9-2RK" customClass="LFGoodListViewController" sceneMemberID="viewController">
@@ -57,11 +57,22 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="skz-Ri-DWU">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" systemItem="trash" id="XWq-yv-FC6">
+                                        <connections>
+                                            <action selector="allDeleteAction:" destination="ITj-y9-2RK" id="DgN-i8-eyi"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="e2D-rZ-UjH">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="bD0-f3-Yak">
+                    <navigationItem key="navigationItem" title="物販リスト" id="e2D-rZ-UjH">
+                        <barButtonItem key="rightBarButtonItem" title="公式サイト" id="bD0-f3-Yak">
                             <connections>
                                 <segue destination="tu7-fd-SFy" kind="push" id="5l4-zO-5mX"/>
                             </connections>
@@ -75,7 +86,7 @@
             </objects>
             <point key="canvasLocation" x="1083" y="46"/>
         </scene>
-        <!--Web View Controller-->
+        <!--Web View Controller - 公式サイト-->
         <scene sceneID="XQq-6Y-fiA">
             <objects>
                 <viewController id="tu7-fd-SFy" customClass="LFWebViewController" sceneMemberID="viewController">
@@ -95,7 +106,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Rja-vf-yqX"/>
+                    <navigationItem key="navigationItem" title="公式サイト" id="Rja-vf-yqX"/>
                     <connections>
                         <outlet property="webView" destination="nZf-om-vvb" id="leZ-44-BrA"/>
                     </connections>

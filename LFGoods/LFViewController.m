@@ -45,7 +45,6 @@
     //ブラーを挟むならこの位置でaddsub
     
     self.tableView = [[UITableView alloc]init];
-    self.tableView.frame = CGRectMake(0, self.navigationController.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
     //self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, self.view.frame.size.height-200)];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;

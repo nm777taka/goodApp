@@ -9,6 +9,6 @@
 @import UIKit;
 #import "LFItemListCustomCell.h"
 
-@interface LFGoodListViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,SWTableViewCellDelegate>
+@interface LFGoodListViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,SWTableViewCellDelegate,UIAlertViewDelegate>
 
 @end
