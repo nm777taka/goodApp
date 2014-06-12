@@ -25,6 +25,8 @@
 @property NSArray *item;
 @property NSMutableArray *lfItems;
 
+@property BOOL isFullScreen;
+
 - (IBAction)addAction:(id)sender;
 
 @end
@@ -106,6 +108,9 @@
     
     //DBからデータをフェッチ
     self.lfItems = [[self fetchEntity] mutableCopy];
+    
+    //初期時はナビゲーションバーを表示しておく
+    self.isFullScreen = NO;
     
 }
 
@@ -224,6 +229,7 @@
 //    CGFloat height = scrollView.bounds.size.height;
 //    CGFloat position = MAX(scrollView.contentOffset.y, 0.0);
 //    CGFloat percent = MIN(position/height, 1.0);
+    [self changeFullScreen];
 }
 
 - (IBAction)addAction:(id)sender
@@ -235,6 +241,19 @@
 - (NSArray *)fetchEntity
 {
     return [LFItem fetchSortedEntityOnlyChecked];
+}
+
+#pragma mark - ナビゲーションバー周り
+- (void)changeFullScreen
+{
+    if(!self.isFullScreen) {
+    
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        self.isFullScreen = YES;
+    } else {
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        self.isFullScreen = NO;
+    }
 }
 
 @end
