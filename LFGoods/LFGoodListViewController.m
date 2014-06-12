@@ -127,19 +127,14 @@
 - (void)configureCell:(LFItemListCustomCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     
+    LFItem *item;
+    
+   
+        
     cell.rightUtilityButtons = [self rightButtons];
+    
     cell.leftUtilityButtons = [self leftButtons];
 
-//    if (!cell.isChecked) {
-//        cell.itemNumLabel.hidden = YES;
-//    } else {
-//        cell.itemNumLabel.hidden = NO;
-//        [self addItemNum:cell];
-//    }
-    
-    NSLog(@"呼ばれた %d",indexPath.row);
-    
-    LFItem *item;
     
     item = [self.lfItems objectAtIndex:indexPath.row];
     
@@ -157,8 +152,14 @@
         cell.priceLabel.textColor = [UIColor blackColor];
     }
     
+    if (!item.isCheckedValue) {
+        cell.itemNumLabel.hidden = YES;
+    } else {
+        cell.itemNumLabel.hidden = NO;
+    }
+    
     cell.nameLabel.text = item.name;
-    cell.itemNum = [item.num intValue];
+    cell.itemNumLabel.text = [NSString stringWithFormat:@"%d",item.numValue];
     
     int temp = item.priceValue;
     NSMutableString *yen = [NSMutableString stringWithFormat:@"￥"];
@@ -207,6 +208,7 @@
         case 0:
             NSLog(@"left button 0 was pressed");
             [self checkItemEntity:(LFItemListCustomCell *)cell];
+            [self addItemNum:(LFItemListCustomCell *)cell];
             [cell hideUtilityButtonsAnimated:YES];            
             break;
         case 1:
@@ -253,33 +255,53 @@
 
 - (void)addItemNum:(LFItemListCustomCell *)cell
 {
-    if (!cell.isChecked) {
-        cell.itemNum++;
-        cell.itemNumLabel.text = [NSString stringWithFormat:@"%d",cell.itemNum];
-    } else {
-        return;
+    NSIndexPath *indexPath = [self.goodListTable indexPathForCell:cell];
+    LFItem* item = self.lfItems[indexPath.row];
+        if (item.isCheckedValue) {
+            item.numValue++;
+            [self configureCell:cell atIndexPath:indexPath];
+            //cell.itemNumLabel.text = [NSString stringWithFormat:@"%d",item.numValue]; configure呼べばおk
+        } else {
+            return;
     }
     
     //saveAction
+    NSManagedObjectContext* context = [NSManagedObjectContext MR_defaultContext];
+    [context MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        if(success) {
+            NSLog(@"saved ------ > \n%@",item);
+        } else {
+            NSLog(@"error ------ > %@",error);
+        }
+    }];
 }
 
 - (void)decreaseItemNum:(LFItemListCustomCell *)cell
 {
-    if (cell.itemNum > 0 && !cell.isChecked) {
-        cell.itemNum--;
-        cell.itemNumLabel.text = [NSString stringWithFormat:@"%d",cell.itemNum];
-    } else {
-        return;
+    NSIndexPath *indexPath = [self.goodListTable indexPathForCell:cell];
+    LFItem *item = self.lfItems[indexPath.row];
+    if (item.numValue > 1 && item.isCheckedValue) {
+        item.numValue--;
     }
     
     //saveAction
+    NSManagedObjectContext* context = [NSManagedObjectContext MR_defaultContext];
+    [context MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        if(success) {
+            NSLog(@"saved ------ > \n%@",item);
+            [self configureCell:cell atIndexPath:indexPath];
+
+        } else {
+            NSLog(@"error ------ > %@",error);
+        }
+    }];
 }
 
 #pragma mark - CoreDataまわり
 - (void)checkItemEntity:(LFItemListCustomCell *)cell
 {
     NSIndexPath *indexPath = [self.goodListTable indexPathForCell:cell];
-    cell.isChecked = YES;
+    
     //データ永続化
     LFItem *checkedItem = self.lfItems[indexPath.row];
     checkedItem.isChecked = [NSNumber numberWithBool:YES];
@@ -304,6 +326,7 @@
     
     LFItem *checkedItem = self.lfItems[indexPath.row];
     checkedItem.isChecked = [NSNumber numberWithBool:NO];
+    checkedItem.num = [NSNumber numberWithInt:0];
     
     NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
     [context MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
