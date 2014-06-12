@@ -44,4 +44,12 @@
     return notCheckedItems;
 }
 
++ (NSArray *)fetchSortedEntityOnlyChecked
+{
+    NSPredicate *yesPredicate = [NSPredicate predicateWithFormat:@"%K = YES",@"isChecked"];
+    NSArray *result = [LFItem MR_findAllSortedBy:@"name" ascending:YES withPredicate:yesPredicate];
+    
+    return result;
+}
+
 @end

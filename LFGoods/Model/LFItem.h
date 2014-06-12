@@ -6,5 +6,6 @@
 + (NSArray *)fetchSortedEntity;
 + (NSArray *)fetchSortedEntityCheckedInEnd;
 + (NSArray *)fetchSortedEntityOnlyNotChecked;
++ (NSArray *)fetchSortedEntityOnlyChecked;
 
 @end
