@@ -1,20 +1,37 @@
 PODS:
+  - BlocksKit (2.2.3):
+    - BlocksKit/All
+  - BlocksKit/All (2.2.3):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.3)
+  - BlocksKit/DynamicDelegate (2.2.3)
+  - BlocksKit/MessageUI (2.2.3):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.3):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
   - Canvas (0.1.1)
-  - FlatUIKit (1.3)
+  - FlatUIKit (1.4)
   - MagicalRecord (2.2):
     - MagicalRecord/Core
   - MagicalRecord/Core (2.2)
   - SWTableViewCell (0.3.0)
 
 DEPENDENCIES:
+  - BlocksKit
   - Canvas
   - FlatUIKit
   - MagicalRecord
   - SWTableViewCell
 
 SPEC CHECKSUMS:
+  BlocksKit: 07c8a80f04275efac6a5f8b973782489c083a182
   Canvas: 45356a2e61087a776bfde5090676d290cf67f7f2
-  FlatUIKit: b84e5d51225bcbd8d7fe264ec15f8ffc7c94e6d1
+  FlatUIKit: edc1ed0c130687dc64a10e45851cc58925f6893d
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   SWTableViewCell: 1725f7607ce4c154264c18aeb78e4636b11b0b29
 
