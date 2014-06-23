@@ -10,6 +10,9 @@
 #import "LFManager.h"
 #import "LFItem.h"
 
+#import <BLocksKit/BlocksKit.h>
+#import <BlocksKit/BlocksKit+UIKit.h>
+
 @interface LFViewController ()
 
 @property (nonatomic,strong) UIImageView *blurredImageView;
@@ -121,6 +124,11 @@
     [self.tableView reloadData];
     [self configureHeaderView];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -269,6 +277,26 @@
         [self.navigationController setNavigationBarHidden:NO animated:YES];
         self.isFullScreen = NO;
     }
+}
+
+#pragma mark - Animation + Blocks
+- (void)countUpLabel:(int)price
+{
+    self.priceLabel.text = 0;
+    __block int limit = 0;
+    __block int cnt = price - 100;
+
+    [NSTimer bk_scheduledTimerWithTimeInterval:0.0001 block:^(NSTimer *timer) {
+        //ラベルアップデート処理
+        if (limit == price) {
+            [timer invalidate];
+        } else {
+            self.priceLabel.text = [NSString stringWithFormat:@"%d",++cnt];
+            limit = cnt;
+        }
+        
+        
+    } repeats:YES];
 }
 
 @end
